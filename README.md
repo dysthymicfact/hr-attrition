@@ -33,11 +33,11 @@ Tim HR menyadari pentingnya pendekatan berbasis data untuk memahami *siapa* yang
 
 ---
 
-## Persiapan
+## Persiapan Data
 
 ### 📂 Sumber Data
 
-Dataset internal perusahaan dengan nama `employee_data` terdiri dari **1.470 entri** dan mencakup **35 kolom** informasi terkait demografi, karakteristik pekerjaan, serta riwayat profesional karyawan. Namun, hanya **1.058 observasi** yang memiliki nilai `Attrition` valid (non-null), sehingga proses analisis dan modeling difokuskan pada subset data ini.
+Dataset internal perusahaan dengan nama [`employee_data`](https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/main/employee/employee_data.csv) diperoleh dari dicoding, terdiri dari **1.470 entri** dan mencakup **35 kolom** informasi terkait demografi, karakteristik pekerjaan, serta riwayat profesional karyawan. Namun, hanya **1.058 observasi** yang memiliki nilai `Attrition` valid (non-null), sehingga proses analisis dan modeling difokuskan pada subset data ini.
 
 Beberapa fitur penting yang digunakan dalam proyek ini antara lain:
 
@@ -63,12 +63,38 @@ Kolom identitas unik (`EmployeeId`) serta beberapa kolom konstan seperti `Employ
 Dataset ini memberikan kerangka kerja yang cukup kaya untuk menggali insight mendalam terkait faktor-faktor penyebab attrition, baik dari sisi personal maupun struktural organisasi.
 
 ### 🛠 Setup Environment
+Proyek ini dikembangkan sepenuhnya di Google Colab, yang telah menyediakan lingkungan Python siap pakai di cloud tanpa perlu setup manual lokal.
 
-- Platform: **Google Colab**
-- Bahasa: **Python 3.11.13**
-- Pustaka: `pandas`, `numpy`, `scikit-learn`, `xgboost`, `matplotlib`, `seaborn`
-- Visualisasi Dashboard: **Metabase**
-- Penyimpanan data: Supabase PostgreSQL
+* Detail Enviromnment:
+  - Platform: **Google Colab**
+  - Bahasa: **Python 3.11.13**
+  - Pustaka yang digunakan:
+    - `pandas` - manipulasi data
+    - `numpy` - komputasi numerik
+    - `scikit-learn` - modeling machine learning
+    - `xgboost` - gradient boosting tree
+    - `matplotlib`, `seaborn` - visualisasi eksploratif
+  - Visualisasi Dashboard: **Metabase** yang terhubung ke Supabase PostgreSQL
+  - Penyimpanan data: Database disimpan dan di-query melalui **Supabase PostgreSQL**
+
+Meskipun proyek ini dikembangkan melalui Google Colab, berikut alternatif jika dijalankan di lokal
+* Detail Environment (menggunakan anaconda):
+  ```bash
+  # Membuat environment baru dan mengaktifkannya
+  conda create --name hr-attrition python=3.9
+  conda activate hr-attrition
+
+  # Instalasi dependencies
+  pip install -r requirements.txt
+
+* Menjalankan aplikasi prediksi:
+  * Menggunakan file  python
+    ```bash
+    python attrition_prediction.py
+
+  * Menggunakan streamlit
+    ```bash
+    streamlit run attrition_prediction.py
 
 ---
 
@@ -101,6 +127,13 @@ Dashboard dikembangkan menggunakan **Metabase** dan disusun untuk memudahkan tim
 
 Dashboard juga dilengkapi dengan fitur filtering, memungkinkan pengguna melakukan penelusuran spesifik berdasarkan kombinasi variabel seperti `OverTime + DistanceFromHome` atau `JobLevel + BusinessTravel`.
 
+### Cara Akses Dashboard Metabase
+
+   * Buka browser ke [http://localhost:3000](http://localhost:3000)
+   * **Login:**
+     * Email: `ryorikim06@gmail.com`
+     * Password: `190525LaskarAi`
+   * Pilih menu **Your personal collection** > **Dewi Rachmawati's Personal Collection** > **edutech-hr-dashboard** untuk melihat visualisasi.
 ---
 
 ## Modeling & Evaluasi
