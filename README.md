@@ -96,6 +96,7 @@ Meskipun proyek ini dikembangkan melalui Google Colab, berikut alternatif jika d
     ```bash
     streamlit run attrition_prediction.py
 
+  Aplikasi prediksi dapat juga diakses menggunakan streamlit melalui browser: `http://localhost:8501` atau lihat [Demo Online](https://attrition-prediction-hr.streamlit.app/)
 ---
 
 ## Business Dashboard
